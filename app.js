@@ -9,6 +9,7 @@ const reportEl = document.getElementById('report');
 const catchphrasesEl = document.getElementById('catchphrases');
 const catchphraseInput = document.getElementById('catchphrase-input');
 const catchphraseButton = document.getElementById('catchphrase-button');
+const catchphraseMessage = document.getElementById('message');
 
 // set state for how many times the user changes the head, middle, and bottom
 let headCounter = 0;
@@ -51,14 +52,19 @@ bottomDropdown.addEventListener('change', (event) => {
 });
 
 catchphraseButton.addEventListener('click', (event) => {
+    catchphraseMessage.textContent = 'Cool Catchphrases!';
     // get the value of the catchphrase input
     const input = catchphraseInput.value;
-    // push the new catchphrase to the catchphrase array in state
-    catchphraseList.push(input);
-    // clear out the form input's value so it's empty to the user
-    catchphraseInput.value = '';
-    // update the dom to show the new catchphrases (refactor to/call displayCatchphrases to do this work)
-    displayCatchphrases();
+    if (input === '') {
+        catchphraseMessage.textContent = "That's neither cool or a catchphrase";
+    } else {
+        // push the new catchphrase to the catchphrase array in state
+        catchphraseList.push(input);
+        // clear out the form input's value so it's empty to the user
+        catchphraseInput.value = '';
+        // update the dom to show the new catchphrases (refactor to/call displayCatchphrases to do this work)
+        displayCatchphrases();
+    }
 });
 
 function displayStats() {
