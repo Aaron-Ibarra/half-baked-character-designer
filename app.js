@@ -50,10 +50,13 @@ bottomDropdown.addEventListener('change', (event) => {
     displayStats();
 });
 
-catchphraseButton.addEventListener('click', () => {
+catchphraseButton.addEventListener('click', (event) => {
     // get the value of the catchphrase input
+    const input = catchphraseInput.value;
     // push the new catchphrase to the catchphrase array in state
+    catchphraseTracker.push(input);
     // clear out the form input's value so it's empty to the user
+    catchphraseInput.value = '';
     // update the dom to show the new catchphrases (refactor to/call displayCatchphrases to do this work)
 });
 
