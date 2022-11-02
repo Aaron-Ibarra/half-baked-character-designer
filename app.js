@@ -69,7 +69,6 @@ function displayStats() {
 function displayCatchphrases() {
     // clear out the DOM for the currently displayed catchphrases
     catchphrasesEl.textContent = '';
-    console.log(catchphraseList);
     // loop through each catchphrase in state
     // and for each catchphrase
     // create an HTML element with the catchphrase as its text content
